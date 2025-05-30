@@ -1,7 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\KeaktifanController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// Pelanggaran
+Route::get('/pelanggaran/terlambat', [PelanggaranController::class, 'terlambat'])->name('pelanggaran.terlambat');
+Route::get('/pelanggaran/melanggar', [PelanggaranController::class, 'melanggar'])->name('pelanggaran.melanggar');
+
+// Profil
+Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putera');
+Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.puteri');
+
+// Keaktifan Dorm
+Route::get('/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.index');
