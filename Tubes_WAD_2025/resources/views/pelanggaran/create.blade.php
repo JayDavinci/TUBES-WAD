@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('content')
 <div class="container mt-4">
@@ -41,4 +41,4 @@
         <a href="{{ route('pelanggaran.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
-@endsection
+@endsection -->

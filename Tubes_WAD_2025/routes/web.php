@@ -13,8 +13,8 @@ Route::get('/pelanggaran/terlambat', [PelanggaranController::class, 'terlambat']
 Route::get('/pelanggaran/melanggar', [PelanggaranController::class, 'melanggar'])->name('pelanggaran.melanggar');
 
 // Profil
-Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putera');
-Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.puteri');
+Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putra');
+Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.putri');
 
 // Keaktifan Dorm
-Route::get('/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.index');
+Route::get('/keaktifan/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.keaktifan');

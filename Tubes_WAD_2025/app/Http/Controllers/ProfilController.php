@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 class ProfilController extends Controller
 {
     public function putera() {
-    return view('profil.putera');
+    return view('profil.putra');
 }
 
 public function puteri() {
-    return view('profil.puteri');
+    return view('profil.putri');
 }
 
 }
