@@ -41,14 +41,14 @@
               Profil
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('profil.putera') }}">Gedung Asrama Putra</a></li>
-              <li><a class="dropdown-item" href="{{ route('profil.puteri') }}">Gedung Asrama Putri</a></li>
+              <li><a class="dropdown-item" href="{{ route('profil.putra') }}">Gedung Asrama Putra</a></li>
+              <li><a class="dropdown-item" href="{{ route('profil.putri') }}">Gedung Asrama Putri</a></li>
             </ul>
           </li>
 
           <!-- Keaktifan Dorm -->
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('keaktifan.index') }}">Keaktifan Dorm</a>
+            <a class="nav-link" href="{{ route('keaktifan.keaktifan') }}">Keaktifan Dorm</a>
           </li>
         </ul>
 
