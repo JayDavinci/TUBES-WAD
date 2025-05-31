@@ -30,7 +30,7 @@
               Pelanggaran
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('pelanggaran.terlambat') }}">Terlambat</a></li>
+              <li><a class="dropdown-item" href="{{ route('terlambat.index') }}">Terlambat</a></li>
               <li><a class="dropdown-item" href="{{ route('pelanggaran.melanggar') }}">Melanggar Aturan</a></li>
             </ul>
           </li>
