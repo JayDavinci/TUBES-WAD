@@ -13,7 +13,7 @@ class PelanggaranController extends Controller
 }
 
 public function melanggar() {
-    return view('pelanggaran.melanggar');
+    return $this->index();
 }
 
 public function index()
