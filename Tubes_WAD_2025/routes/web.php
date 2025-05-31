@@ -15,6 +15,7 @@ Route::get('/pelanggaran/melanggar', [PelanggaranController::class, 'melanggar']
 // Profil
 Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putra');
 Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.putri');
+Route::resource('profil', ProfilController::class);
 
 // Keaktifan Dorm
 Route::get('/keaktifan/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.keaktifan');
