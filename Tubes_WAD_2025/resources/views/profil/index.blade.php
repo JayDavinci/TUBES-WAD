@@ -29,9 +29,9 @@
                 <td>{{ $profil->prodi }}</td>
                 <td>{{ ucfirst($profil->jenis_kelamin) }}</td>
                 <td>
-                    <a href="{{ route('profil.show', $profil->id) }}" class="btn btn-info btn-sm">Detail</a>
-                    <a href="{{ route('profil.edit', $profil->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('profil.destroy', $profil->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('profil.show', $profil->anggota_id) }}" class="btn btn-info btn-sm">Detail</a>
+                    <a href="{{ route('profil.edit', $profil->anggota_id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ route('profil.destroy', $profil->anggota_id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</button>

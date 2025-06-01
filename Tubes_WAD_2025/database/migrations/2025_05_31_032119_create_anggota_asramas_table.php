@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id('anggota_id'); // custom nama kolom PK
             $table->string('nama', 100);
             $table->string('nim', 12)->unique();
+            $table->string('fakultas', 100);
+            $table->string('prodi', 100);
+            $table->string('jenis_kelamin', 10);
             $table->timestamps();
         });
     }

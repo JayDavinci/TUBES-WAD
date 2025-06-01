@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Edit Profil</h2>
-    <form action="{{ route('profil.update', $profil->id) }}" method="POST">
+    <form action="{{ route('profil.update', $profil->anggota_id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">
