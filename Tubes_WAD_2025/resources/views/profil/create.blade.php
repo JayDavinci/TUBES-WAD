@@ -24,8 +24,8 @@
         <div class="mb-3">
             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
             <select name="jenis_kelamin" class="form-control" required>
-                <option value="putra">Putra</option>
-                <option value="putri">Putri</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>

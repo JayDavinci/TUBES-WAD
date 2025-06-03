@@ -25,8 +25,8 @@
         <div class="mb-3">
             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
             <select name="jenis_kelamin" class="form-control" required>
-                <option value="putra" {{ $profil->jenis_kelamin == 'putra' ? 'selected' : '' }}>Putra</option>
-                <option value="putri" {{ $profil->jenis_kelamin == 'putri' ? 'selected' : '' }}>Putri</option>
+                <option value="Laki-laki" {{ $profil->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                <option value="Perempuan" {{ $profil->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
