@@ -28,7 +28,7 @@ class ProfilController extends Controller
             'nim' => 'required|string|max:50',
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
-            'jenis_kelamin' => 'required|in:putra,putri',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
         ]);
 
         Profil::create($request->all());
@@ -36,39 +36,39 @@ class ProfilController extends Controller
     }
 
     // Tampilkan detail profil
-    public function show($id)
+    public function show($anggota_id)
     {
-        $profil = Profil::findOrFail($id);
+        $profil = Profil::findOrFail($anggota_id);
         return view('profil.show', compact('profil'));
     }
 
     // Tampilkan form edit profil
-    public function edit($id)
+    public function edit($anggota_id)
     {
-        $profil = Profil::findOrFail($id);
+        $profil = Profil::findOrFail($anggota_id);
         return view('profil.edit', compact('profil'));
     }
 
     // Update profil
-    public function update(Request $request, $id)
+    public function update(Request $request, $anggota_id)
     {
         $request->validate([
             'nama' => 'required|string|max:255',
             'nim' => 'required|string|max:50',
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
-            'jenis_kelamin' => 'required|in:putra,putri',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan'
         ]);
 
-        $profil = Profil::findOrFail($id);
+        $profil = Profil::findOrFail($anggota_id);
         $profil->update($request->all());
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diupdate!');
     }
 
     // Hapus profil
-    public function destroy($id)
+    public function destroy($anggota_id)
     {
-        $profil = Profil::findOrFail($id);
+        $profil = Profil::findOrFail($anggota_id);
         $profil->delete();
         return redirect()->route('profil.index')->with('success', 'Profil berhasil dihapus!');
     }
@@ -76,14 +76,14 @@ class ProfilController extends Controller
     // Tampilkan profil putra
     public function putera()
     {
-        $profils = Profil::where('jenis_kelamin', 'putra')->get();
+        $profils = Profil::where('jenis_kelamin', 'Laki-laki')->get();
         return view('profil.putra', compact('profils'));
     }
 
     // Tampilkan profil putri
     public function puteri()
     {
-        $profils = Profil::where('jenis_kelamin', 'putri')->get();
+        $profils = Profil::where('jenis_kelamin', 'Perempuan')->get();
         return view('profil.putri', compact('profils'));
     }
 }
