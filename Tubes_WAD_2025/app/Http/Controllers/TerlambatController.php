@@ -10,7 +10,7 @@ class TerlambatController extends Controller
 {
     public function index()
     {
-        $terlambats = Terlambat::with('anggotaAsrama')->latest()->get();
+        $terlambats = Terlambat::with('anggota')->latest()->get();
         return view('Pelanggaran.terlambat', compact('terlambats'));
     }
 
@@ -23,12 +23,32 @@ class TerlambatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'anggota_id' => 'required|exists:anggota_asrama,anggota_id',
+            'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
             'waktu_masuk' => 'required|date',
         ]);
 
         Terlambat::create($request->only(['anggota_id', 'waktu_masuk']));
         return redirect()->route('terlambat.index')->with('success', 'Data keterlambatan berhasil ditambahkan.');
+    }
+
+    public function edit($id)
+    {
+        $terlambat = Terlambat::findOrFail($id);
+        $anggota = AnggotaAsrama::all();
+        return view('Pelanggaran.edit_terlambat', compact('terlambat', 'anggota'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
+            'waktu_masuk' => 'required|date',
+        ]);
+
+        $terlambat = Terlambat::findOrFail($id);
+        $terlambat->update($request->only(['anggota_id', 'waktu_masuk']));
+
+        return redirect()->route('terlambat.index')->with('success', 'Data keterlambatan berhasil diperbarui.');
     }
 
     public function destroy($id)

@@ -12,7 +12,7 @@ class AnggotaAsrama extends Model
     protected $table = 'anggota_asramas';
 
     protected $fillable = ['nama', 'nim'];
-
+    protected $primaryKey = 'anggota_id';
     public function pelanggaran()
     {
         return $this->hasMany(Pelanggaran::class, 'anggota_id');

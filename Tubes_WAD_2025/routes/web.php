@@ -21,6 +21,8 @@ Route::get('/pelanggaran/melanggar', [PelanggaranController::class, 'melanggar']
 Route::get('/terlambat', [TerlambatController::class, 'index'])->name('terlambat.index');
 Route::get('/terlambat/create', [TerlambatController::class, 'create'])->name('terlambat.create');
 Route::post('/terlambat/store', [TerlambatController::class, 'store'])->name('terlambat.store');
+Route::get('terlambat/{id}/edit', [TerlambatController::class, 'edit'])->name('terlambat.edit');
+Route::put('/terlambat/{id}', [TerlambatController::class, 'update'])->name('terlambat.update');
 Route::delete('/terlambat/{id}', [TerlambatController::class, 'destroy'])->name('terlambat.destroy');
 
 // Profil
