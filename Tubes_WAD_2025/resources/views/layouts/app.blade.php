@@ -24,6 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <!-- Menu Kiri -->
         <ul class="navbar-nav me-auto">
+          @auth
           <!-- Pelanggaran Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarPelanggaran" role="button" data-bs-toggle="dropdown">
@@ -50,16 +51,17 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('keaktifan.keaktifan') }}">Keaktifan Dorm</a>
           </li>
+          @endauth
         </ul>
 
-        <!-- Login/Register Section -->
+        <!-- Login/Register or User Menu -->
         <ul class="navbar-nav">
           @guest
             <li class="nav-item">
-              <a class="nav-link" href="">Login</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Register</a>
+              <a class="nav-link" href="{{ route('register') }}">Register</a>
             </li>
           @else
             <li class="nav-item dropdown">
@@ -68,11 +70,11 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                  <a class="dropdown-item" href=""
+                  <a class="dropdown-item" href="#"
                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                   </a>
-                  <form id="logout-form" action="" method="POST" class="d-none">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                   </form>
                 </li>
