@@ -29,9 +29,16 @@ class ProfilController extends Controller
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        Profil::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('foto')) {
+        $data['foto'] = $request->file('foto')->store('foto_profil', 'public');
+        }
+
+        Profil::create($data);
         return redirect()->route('profil.index')->with('success', 'Profil berhasil ditambahkan!');
     }
 
@@ -57,11 +64,21 @@ class ProfilController extends Controller
             'nim' => 'required|string|max:50',
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
-            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan'
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
         $profil = Profil::findOrFail($anggota_id);
-        $profil->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('foto')) {
+            // Hapus foto lama jika ada
+            if ($profil->foto && \Storage::disk('public')->exists($profil->foto)) {
+                \Storage::disk('public')->delete($profil->foto);
+            }
+            $data['foto'] = $request->file('foto')->store('foto_profil', 'public');
+        }
+
+        $profil->update($data);
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diupdate!');
     }
 
@@ -69,6 +86,9 @@ class ProfilController extends Controller
     public function destroy($anggota_id)
     {
         $profil = Profil::findOrFail($anggota_id);
+        if ($profil->foto && \Storage::disk('public')->exists($profil->foto)) {
+            \Storage::disk('public')->delete($profil->foto);
+        }
         $profil->delete();
         return redirect()->route('profil.index')->with('success', 'Profil berhasil dihapus!');
     }

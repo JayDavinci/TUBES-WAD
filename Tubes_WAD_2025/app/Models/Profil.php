@@ -12,6 +12,6 @@ class Profil extends Model
     protected $table = 'anggota_asramas';
     protected $primaryKey = 'anggota_id';
     protected $fillable = [
-        'nama', 'nim', 'fakultas', 'prodi', 'jenis_kelamin'
+        'nama', 'nim', 'fakultas', 'prodi', 'jenis_kelamin', 'foto'
     ];
 }
