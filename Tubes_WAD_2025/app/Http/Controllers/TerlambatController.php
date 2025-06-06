@@ -16,7 +16,7 @@ class TerlambatController extends Controller
 
     public function create()
     {
-        $anggota = AnggotaAsrama::all();
+        $anggota = AnggotaAsrama::select('anggota_id', 'nama', 'jenis_kelamin')->get();
         return view('Pelanggaran.create_terlambat', compact('anggota'));
     }
 
