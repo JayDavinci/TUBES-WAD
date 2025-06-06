@@ -16,6 +16,7 @@
     }
   </style>
 </head>
+@yield('scripts') 
 <body>
 
   <!-- Navbar -->
