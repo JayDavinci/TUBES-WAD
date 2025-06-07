@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title', 'ASRI')</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ asset('images/SR_Logo_Clear.png') }}">
   <style>
     body {
       background-color: #fff;
@@ -16,6 +17,7 @@
     }
   </style>
 </head>
+@yield('scripts') 
 <body>
 
   <!-- Navbar -->
