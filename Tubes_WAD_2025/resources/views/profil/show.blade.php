@@ -38,3 +38,4 @@
     <a href="{{ route('profil.index') }}" class="btn btn-secondary">Kembali</a>
 </div>
 @endsection
+

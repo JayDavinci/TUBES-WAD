@@ -26,6 +26,7 @@
             <select name="jenis_kelamin" class="form-control" required>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
+            </select>
         <div class="mb-3">
             <label for="foto" class="form-label">Foto Profil</label>
             <input type="file" name="foto" class="form-control">

@@ -36,7 +36,13 @@ Route::delete('/terlambat/{id}', [TerlambatController::class, 'destroy'])->name(
 // Profil
 Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putra');
 Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.putri');
-Route::resource('profil', ProfilController::class);
+Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
+Route::post('/profil', [ProfilController::class, 'store'])->name('profil.store'); // <-- Tambahkan ini
+Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
+Route::get('/profil/{anggota_id}', [ProfilController::class, 'show'])->name('profil.show');
+Route::get('/profil/{anggota_id}/edit', [ProfilController::class, 'edit'])->name('profil.edit');
+Route::put('/profil/{anggota_id}', [ProfilController::class, 'update'])->name('profil.update');
+Route::delete('/profil/{anggota_id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
 
 // Keaktifan Dorm
 Route::get('/keaktifan/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.keaktifan');

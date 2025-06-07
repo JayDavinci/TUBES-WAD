@@ -7,6 +7,17 @@
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+
+    <form method="GET" action="{{ route('profil.index') }}" class="mb-3 d-flex gap-2">
+        <input type="text" name="search" class="form-control" placeholder="Cari nama/NIM/fakultas/prodi/jenis kelamin" value="{{ request('search') }}">
+        <select name="jenis_kelamin" class="form-control" style="max-width:150px">
+            <option value="">Semua</option>
+            <option value="Laki-laki" {{ request('jenis_kelamin')=='Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+            <option value="Perempuan" {{ request('jenis_kelamin')=='Perempuan' ? 'selected' : '' }}>Perempuan</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Cari</button>
+    </form>
+
     <table class="table table-bordered">
         <thead>
             <tr>
