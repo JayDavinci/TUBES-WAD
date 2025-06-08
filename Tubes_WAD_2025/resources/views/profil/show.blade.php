@@ -24,7 +24,18 @@
             <th>Jenis Kelamin</th>
             <td>{{ ucfirst($profil->jenis_kelamin) }}</td>
         </tr>
+        <tr>
+            <th>Foto</th>
+            <td>
+                @if($profil->foto)
+                    <img src="{{ asset('storage/'.$profil->foto) }}" alt="Foto Profil" width="150">
+                @else
+                    <span>Tidak ada foto</span>
+                @endif
+            </td>
+        </tr>
     </table>
     <a href="{{ route('profil.index') }}" class="btn btn-secondary">Kembali</a>
 </div>
 @endsection
+

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Edit Profil</h2>
-    <form action="{{ route('profil.update', $profil->anggota_id) }}" method="POST">
+    <form action="{{ route('profil.update', $profil->anggota_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -28,6 +28,14 @@
                 <option value="Laki-laki" {{ $profil->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                 <option value="Perempuan" {{ $profil->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
             </select>
+        </div>
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto Profil</label>
+            <input type="file" name="foto" class="form-control">
+            @if($profil->foto)
+                <br>
+                <img src="{{ asset('storage/'.$profil->foto) }}" alt="Foto Profil" width="100">
+            @endif
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="{{ route('profil.index') }}" class="btn btn-secondary">Batal</a>

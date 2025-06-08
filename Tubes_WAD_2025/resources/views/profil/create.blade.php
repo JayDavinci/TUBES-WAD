@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Tambah Profil</h2>
-    <form action="{{ route('profil.store') }}" method="POST">
+    <form action="{{ route('profil.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
@@ -27,6 +27,9 @@
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto Profil</label>
+            <input type="file" name="foto" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
