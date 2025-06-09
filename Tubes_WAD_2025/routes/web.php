@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\KeaktifanController;
 use App\Http\Controllers\TerlambatController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AcaraController;
 
 Route::get('/', function () {
     return view('home');
@@ -45,4 +46,9 @@ Route::put('/profil/{anggota_id}', [ProfilController::class, 'update'])->name('p
 Route::delete('/profil/{anggota_id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
 
 // Keaktifan Dorm
-Route::get('/keaktifan/keaktifan', [KeaktifanController::class, 'index'])->name('keaktifan.keaktifan');
+Route::get('/acara/index', [AcaraController::class, 'index'])->name('acara.index');
+Route::get('/acara/create', [AcaraController::class, 'create'])->name('acara.create');
+Route::post('/acara/store', [AcaraController::class, 'store'])->name('acara.store'); 
+Route::get('/acara/{acara_id}/edit', [AcaraController::class, 'edit'])->name('acara.edit');
+Route::put('/acara/{acara_id}', [AcaraController::class, 'update'])->name('acara.update');
+Route::delete('/acara/{acara_id}', [AcaraController::class, 'destroy'])->name('acara.destroy');
