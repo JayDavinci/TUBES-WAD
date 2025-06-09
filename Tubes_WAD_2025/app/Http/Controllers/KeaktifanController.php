@@ -26,12 +26,10 @@ class KeaktifanController extends Controller
         return view('keaktifan.keaktifan', compact('data'));
     }
 
-    // Tampilkan form tambah profil
     public function create(){
         return view('keaktifan.create');
     }
     
-    // Simpan profil baru
         public function store(Request $request){
         $request->validate([
             'nama_acara' => 'required|string|max:255',
@@ -44,14 +42,12 @@ class KeaktifanController extends Controller
         return redirect()->route('keaktifan.keaktifan')->with('success', 'Acara berhasil ditambahkan!');
     }
     
-    // Tampilkan form edit profil
         public function edit($acara_id)
     {
         $data = Acara::findOrFail($acara_id);
         return view('keaktifan.edit', compact('data'));
     }
 
-    // Update profil
         public function update(Request $request, $acara_id)
     {
         $request->validate([
@@ -66,7 +62,6 @@ class KeaktifanController extends Controller
         return redirect()->route('keaktifan.keaktifan')->with('success', 'Acara berhasil diupdate!');
     }
     
-    // Hapus profil
         public function destroy($acara_id)
     {
         $acara = Acara::findOrFail($acara_id);
