@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Acara;
+use App\Http\Resources\AcaraResource;
 
 class AcaraController extends Controller
 {
@@ -13,12 +14,10 @@ class AcaraController extends Controller
         return view('acara.acara', compact('data'));
     }
 
-    // Tampilkan form tambah profil
     public function create(){
         return view('acara.create');
     }
     
-    // Simpan profil baru
         public function store(Request $request){
         $request->validate([
             'nama_acara' => 'required|string|max:255',
@@ -32,14 +31,12 @@ class AcaraController extends Controller
         return redirect()->route('acara.index')->with('success', 'Acara berhasil ditambahkan!');
     }
     
-    // Tampilkan form edit profil
         public function edit($acara_id)
     {
         $data = Acara::findOrFail($acara_id);
         return view('acara.edit', compact('data'));
     }
 
-    // Update profil
         public function update(Request $request, $acara_id)
     {
         $request->validate([
@@ -55,11 +52,16 @@ class AcaraController extends Controller
         return redirect()->route('acara.index')->with('success', 'Acara berhasil diupdate!');
     }
     
-    // Hapus profil
         public function destroy($acara_id)
     {
         $acara = Acara::findOrFail($acara_id);
         $acara->delete();
         return redirect()->route('acara.index')->with('success', 'Acara berhasil dihapus!');
+    }
+    
+     public function getListAcara()
+    {
+        $acara = Acara::all();
+        return new AcaraResource(true, 'List Acara', $acara);
     }
 }
