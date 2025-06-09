@@ -6,22 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\Acara;
 use App\Models\Keaktifan;
 use App\Models\AnggotaAsrama;
+use App\Http\Resources\KeaktifanResource;
 
 class KeaktifanController extends Controller
 {
-     public function index(Request $request)
+    public function index(Request $request)
     {
         $data = Keaktifan::with('anggota','acara')->get();
         return view('keaktifan.kehadiran', compact('data'));
     }
 
-    public function create(){
+        public function create(){
          $anggota = AnggotaAsrama::all();
          $acara = Acara::all();
         return view('keaktifan.create',compact('anggota','acara'));
     }
     
-    public function store(Request $request){
+        public function store(Request $request){
         $request->validate([
             'acara_id' => 'required',
             'anggota_id' => 'required',
@@ -63,5 +64,9 @@ class KeaktifanController extends Controller
         $keaktifan->delete();
         return redirect()->route('keaktifan.index')->with('success', 'Kehadiran berhasil dihapus!');
     }
-
+    public function getListKeaktifan()
+    {
+        $keaktifan = Keaktifan::all();
+        return new KeaktifanResource(true, 'List Keaktifan', $keaktifan);
+    }
 }

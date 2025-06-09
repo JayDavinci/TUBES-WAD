@@ -45,7 +45,7 @@ Route::get('/profil/{anggota_id}/edit', [ProfilController::class, 'edit'])->name
 Route::put('/profil/{anggota_id}', [ProfilController::class, 'update'])->name('profil.update');
 Route::delete('/profil/{anggota_id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
 
-// Keaktifan Dorm
+// Keaktifan Dorm (Acara & Kehadiran)
 Route::get('/acara/index', [AcaraController::class, 'index'])->name('acara.index');
 Route::get('/acara/create', [AcaraController::class, 'create'])->name('acara.create');
 Route::post('/acara/store', [AcaraController::class, 'store'])->name('acara.store'); 
