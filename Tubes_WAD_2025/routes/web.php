@@ -52,3 +52,10 @@ Route::post('/acara/store', [AcaraController::class, 'store'])->name('acara.stor
 Route::get('/acara/{acara_id}/edit', [AcaraController::class, 'edit'])->name('acara.edit');
 Route::put('/acara/{acara_id}', [AcaraController::class, 'update'])->name('acara.update');
 Route::delete('/acara/{acara_id}', [AcaraController::class, 'destroy'])->name('acara.destroy');
+
+Route::get('/keaktifan/index', [KeaktifanController::class, 'index'])->name('keaktifan.index');
+Route::get('/keaktifan/create', [KeaktifanController::class, 'create'])->name('keaktifan.create');
+Route::post('/keaktifan/store', [KeaktifanController::class, 'store'])->name('keaktifan.store'); 
+Route::get('/keaktifan/{keaktifan_id}/edit', [KeaktifanController::class, 'edit'])->name('keaktifan.edit');
+Route::put('/keaktifan/{keaktifan_id}', [KeaktifanController::class, 'update'])->name('keaktifan.update');
+Route::delete('/keaktifan/{keaktifan_id}', [KeaktifanController::class, 'destroy'])->name('keaktifan.destroy');

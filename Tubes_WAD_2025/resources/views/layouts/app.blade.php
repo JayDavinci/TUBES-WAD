@@ -86,7 +86,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{{ route('acara.index') }}">Kelola Acara</a></li>
-              <li><a class="dropdown-item" href="{{ route('acara.index') }}">Kehadiran</a></li>
+              <li><a class="dropdown-item" href="{{ route('keaktifan.index') }}">Kehadiran</a></li>
             </ul>
           </li>
           @endauth

@@ -4,69 +4,64 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Acara;
+use App\Models\Keaktifan;
+use App\Models\AnggotaAsrama;
 
 class KeaktifanController extends Controller
 {
      public function index(Request $request)
     {
-        $query = Acara::query();
-
-        if ($request->filled('search')) {
-            $search = $request->input('search');
-            $query->where(function($q) use ($search) {
-                $q->where('nama', 'like', "%$search%")
-                ->orWhere('nim', 'like', "%$search%")
-                ->orWhere('fakultas', 'like', "%$search%")
-                ->orWhere('prodi', 'like', "%$search%")
-                ->orWhere('jenis_kelamin', 'like', "%$search%");
-            });
-        }
-
-        $data = $query->get();
-        return view('keaktifan.keaktifan', compact('data'));
+        $data = Keaktifan::with('anggota','acara')->get();
+        return view('keaktifan.kehadiran', compact('data'));
     }
 
     public function create(){
-        return view('keaktifan.create');
+         $anggota = AnggotaAsrama::all();
+         $acara = Acara::all();
+        return view('keaktifan.create',compact('anggota','acara'));
     }
     
-        public function store(Request $request){
+    public function store(Request $request){
         $request->validate([
-            'nama_acara' => 'required|string|max:255',
-            'penyelenggara' => 'required|string|max:255'
+            'acara_id' => 'required',
+            'anggota_id' => 'required',
+            'waktu_hadir' => 'required|date',
         ]);
 
-        $data = $request->only(['nama_acara', 'penyelenggara']);
+        $data = $request->only(['acara_id', 'anggota_id','waktu_hadir']);
 
-        Acara::create($data);
-        return redirect()->route('keaktifan.keaktifan')->with('success', 'Acara berhasil ditambahkan!');
+        Keaktifan::create($data);
+        return redirect()->route('keaktifan.index')->with('success', 'Kehadiran berhasil ditambahkan!');
     }
     
-        public function edit($acara_id)
+        public function edit($keaktifan_id)
     {
-        $data = Acara::findOrFail($acara_id);
-        return view('keaktifan.edit', compact('data'));
+        $keaktifan = Keaktifan::findOrFail($keaktifan_id);
+         $anggota = AnggotaAsrama::all();
+         $acara = Acara::all();
+        return view('keaktifan.edit', compact('keaktifan','anggota','acara'));
     }
 
-        public function update(Request $request, $acara_id)
+        public function update(Request $request, $keaktifan_id)
     {
         $request->validate([
-            'nama_acara' => 'required|string|max:255',
-            'penyelenggara' => 'required|string|max:255'
+            'acara_id' => 'required',
+            'anggota_id' => 'required',
+            'waktu_hadir' => 'required|date',
         ]);
 
-        $acara = Acara::findOrFail($acara_id);
-        $data = $request->only(['nama_acara', 'penyelenggara']);
+        $keaktifan = Keaktifan::findOrFail($keaktifan_id);
+        $data = $request->only(['acara_id', 'anggota_id','waktu_hadir']);
 
-        $acara->update($data);
-        return redirect()->route('keaktifan.keaktifan')->with('success', 'Acara berhasil diupdate!');
+        $keaktifan->update($data);
+        return redirect()->route('keaktifan.index')->with('success', 'Kehadiran berhasil diupdate!');
     }
     
-        public function destroy($acara_id)
+        public function destroy($keaktifan_id)
     {
-        $acara = Acara::findOrFail($acara_id);
-        $acara->delete();
-        return redirect()->route('keaktifan.keaktifan')->with('success', 'Acara berhasil dihapus!');
+        $keaktifan = Keaktifan::findOrFail($keaktifan_id);
+        $keaktifan->delete();
+        return redirect()->route('keaktifan.index')->with('success', 'Kehadiran berhasil dihapus!');
     }
 
 }

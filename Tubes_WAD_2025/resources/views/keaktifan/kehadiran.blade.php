@@ -20,12 +20,12 @@
             @forelse($data as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->nama_acara }}</td>
-                <td>{{ $item->penyelenggara }}</td>
-                <td>{{ $item->penyelenggara }}</td>
+                <td>{{ $item->acara ? $item->acara->nama_acara : '-'}}</td>
+                <td>{{ $item->anggota ? $item->anggota->nama : '-' }}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_hadir)->format('d M Y, H:i') }}</td>
                 <td>
-                    <a href="{{ route('keaktifan.edit', $item->acara_id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('keaktifan.destroy', $item->acara_id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('keaktifan.edit', $item->keaktifans_id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{ route('keaktifan.destroy', $item->keaktifans_id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</button>

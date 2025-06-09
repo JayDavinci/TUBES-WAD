@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Acara;
+use App\Http\Resources\AcaraResource;
 
 class AcaraController extends Controller
 {
@@ -56,5 +57,11 @@ class AcaraController extends Controller
         $acara = Acara::findOrFail($acara_id);
         $acara->delete();
         return redirect()->route('acara.index')->with('success', 'Acara berhasil dihapus!');
+    }
+    
+     public function getListAcara()
+    {
+        $acara = Acara::all();
+        return new AcaraResource(true, 'List Acara', $acara);
     }
 }
