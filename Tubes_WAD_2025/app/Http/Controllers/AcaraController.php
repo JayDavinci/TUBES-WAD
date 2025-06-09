@@ -8,13 +8,13 @@ use App\Http\Resources\AcaraResource;
 
 class AcaraController extends Controller
 {
-     public function index()
+    public function index()
     {
         $data =  Acara::get();
         return view('acara.acara', compact('data'));
     }
 
-    public function create(){
+        public function create(){
         return view('acara.create');
     }
     
@@ -59,7 +59,7 @@ class AcaraController extends Controller
         return redirect()->route('acara.index')->with('success', 'Acara berhasil dihapus!');
     }
     
-     public function getListAcara()
+        public function getListAcara()
     {
         $acara = Acara::all();
         return new AcaraResource(true, 'List Acara', $acara);
