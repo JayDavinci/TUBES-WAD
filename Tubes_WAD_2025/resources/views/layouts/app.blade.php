@@ -80,8 +80,14 @@
           </li>
 
           <!-- Keaktifan Dorm -->
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('keaktifan.keaktifan') }}">Keaktifan Dorm</a>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarProfil" role="button" data-bs-toggle="dropdown">
+              Keaktifan Dorm
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ route('acara.index') }}">Kelola Acara</a></li>
+              <li><a class="dropdown-item" href="{{ route('acara.index') }}">Kehadiran</a></li>
+            </ul>
           </li>
           @endauth
         </ul>
