@@ -7,7 +7,6 @@
     <form action="{{ route('keaktifan.store') }}" method="POST">
         @csrf
 
-        <!-- Gedung -->
         <div class="mb-3">
             <label for="acara_id" class="form-label">Acara</label>
             <select id="acara_id" name="acara_id" class="form-select" required>
@@ -20,7 +19,6 @@
             </select>
         </div>
 
-        <!-- Nama (anggota_id) -->
         <div class="mb-3">
             <label for="anggota_id" class="form-label">Nama</label>
             <select name="anggota_id" id="anggota_id" class="form-select" required>
@@ -33,13 +31,11 @@
             </select>
         </div>
 
-        <!-- Waktu Masuk -->
         <div class="mb-3">
             <label for="waktu_hadir" class="form-label">Waktu Hadir</label>
             <input type="datetime-local" name="waktu_hadir" class="form-control" required>
         </div>
 
-        <!-- Tombol Submit dan Batal -->
         <button type="submit" class="btn btn-danger">Simpan</button>
         <a href="{{ route('keaktifan.index') }}" class="btn btn-secondary">Batal</a>
     </form>
