@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AcaraResource extends JsonResource
-{
-     // TODO: Deklarasikan 3 properties (status, message, resource) dengan visibility public 
+{ 
     public $status;
     public $message;
     public $resource;
@@ -21,7 +20,6 @@ class AcaraResource extends JsonResource
 
     public function toArray(Request $request): array
     {
-        // TODO: Lengkapi return dengan success mengambil dari property status, message dari property message, dan data dari property resource
         return [
             'success' => $this->status,
             'message' => $this->message,
