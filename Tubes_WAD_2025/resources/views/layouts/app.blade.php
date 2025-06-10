@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- AOS Animation (opsional, bisa dihapus jika tidak butuh) -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #333;
+  }
+
+  h1, h2, h3, .navbar-brand {
+    font-weight: 600;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero img {
+    transition: transform 0.3s ease;
+  }
+
+  .hero img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ASRI - Aplikasi Asisten SR</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="{{ asset('images/SR_Logo_Clear.png') }}">
   <style>
     .text-justify {
       text-align: justify;
@@ -16,21 +47,23 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
-      <a class="navbar-brand" href="{{ url('/') }}">ASRI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+    <img src="{{ asset('images/SR_Logo_Clear.png') }}" alt="Logo ASRI" width="30" height="30" class="me-2">
+    <span>ASRI</span>
+      </a>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <!-- Menu Kiri -->
         <ul class="navbar-nav me-auto">
+          @auth
           <!-- Pelanggaran Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarPelanggaran" role="button" data-bs-toggle="dropdown">
               Pelanggaran
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('pelanggaran.terlambat') }}">Terlambat</a></li>
+              <li><a class="dropdown-item" href="{{ route('terlambat.index') }}">Terlambat</a></li>
               <li><a class="dropdown-item" href="{{ route('pelanggaran.melanggar') }}">Melanggar Aturan</a></li>
             </ul>
           </li>
@@ -47,19 +80,26 @@
           </li>
 
           <!-- Keaktifan Dorm -->
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('keaktifan.keaktifan') }}">Keaktifan Dorm</a>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarProfil" role="button" data-bs-toggle="dropdown">
+              Keaktifan Dorm
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ route('acara.index') }}">Kelola Acara</a></li>
+              <li><a class="dropdown-item" href="{{ route('keaktifan.index') }}">Kehadiran</a></li>
+            </ul>
           </li>
+          @endauth
         </ul>
 
-        <!-- Login/Register Section -->
+        <!-- Login/Register or User Menu -->
         <ul class="navbar-nav">
           @guest
             <li class="nav-item">
-              <a class="nav-link" href="">Login</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Register</a>
+              <a class="nav-link" href="{{ route('register') }}">Register</a>
             </li>
           @else
             <li class="nav-item dropdown">
@@ -68,11 +108,11 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                  <a class="dropdown-item" href=""
+                  <a class="dropdown-item" href="#"
                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                   </a>
-                  <form id="logout-form" action="" method="POST" class="d-none">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                   </form>
                 </li>
@@ -102,5 +142,11 @@
 
   <!-- Script Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  @stack('scripts')
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
