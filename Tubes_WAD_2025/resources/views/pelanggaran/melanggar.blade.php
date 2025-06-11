@@ -39,8 +39,8 @@
                     </td>
                     <td>{{ \Carbon\Carbon::parse($data->waktu)->format('d M Y, H:i') }}</td>
                     <td class="d-flex gap-2">
-                        <a href="{{ route('pelanggaran.edit', $data->id) }}" class="btn btn-sm btn-warning">✏️ Edit</a>
-                        <form action="{{ route('pelanggaran.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Hapus data?')">
+                        <a href="{{ route('pelanggaran.edit', $data->anggota_id) }}" class="btn btn-sm btn-warning">✏️ Edit</a>
+                        <form action="{{ route('pelanggaran.destroy', $data->anggota_id) }}" method="POST" onsubmit="return confirm('Hapus data?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">🗑 Hapus</button>

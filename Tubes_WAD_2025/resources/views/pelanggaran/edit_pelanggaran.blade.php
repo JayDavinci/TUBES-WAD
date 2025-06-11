@@ -12,7 +12,8 @@
             <select class="form-control" name="anggota_id" required>
                 <option value="">-- Pilih Anggota --</option>
                 @foreach($anggota as $a)
-                    <option value="{{ $a->id }}" {{ $pelanggaran->anggota_id == $a->id ? 'selected' : '' }}>
+                    <!-- <option value="{{ $a->id }}" {{ $pelanggaran->anggota_id == $a->id ? 'selected' : '' }}> -->
+                    <option value="{{ $a->anggota_id }}" {{ $pelanggaran->anggota_id == $a->anggota_id ? 'selected' : '' }}>
                         {{ $a->nama }}
                     </option>
                 @endforeach
