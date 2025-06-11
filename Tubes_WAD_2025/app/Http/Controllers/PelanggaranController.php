@@ -10,16 +10,23 @@ class PelanggaranController extends Controller
 {
     public function terlambat() {
     return view('pelanggaran.terlambat');
-}
+    }
 
-public function melanggar() {
-    return $this->index();
-}
+    public function melanggar(Request $request) {
+        return $this->index($request);
+    }
 
-public function index()
+    public function index(Request $request)
     {
-        $pelanggarans = Pelanggaran::with('anggota')->latest()->get();
-        return view('Pelanggaran.melanggar', compact('pelanggarans'));
+        $query = Pelanggaran::with('anggota');
+
+        if ($request->filled('filter_jenis')) {
+            $query->where('jenis', $request->filter_jenis);
+        }
+
+        $pelanggarans = $query->get();
+
+        return view('pelanggaran.melanggar', compact('pelanggarans'));
     }
 
     public function create()
@@ -34,11 +41,12 @@ public function index()
         $request->validate([
             'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
             'jenis' => 'required|string',
+            'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
             'waktu' => 'required|date',
         ]);
 
-        $data = $request->only(['anggota_id', 'jenis', 'waktu']);
+        $data = $request->only(['anggota_id', 'jenis','deskripsi', 'waktu']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_pelanggaran', 'public');
@@ -62,12 +70,13 @@ public function index()
         $request->validate([
             'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
             'jenis' => 'required|string',
+            'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
             'waktu' => 'required|date',
         ]);
 
         $pelanggaran = Pelanggaran::findOrFail($id);
-        $data = $request->only(['anggota_id', 'jenis', 'waktu']);
+        $data = $request->only(['anggota_id', 'jenis','deskripsi', 'waktu']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_pelanggaran', 'public');

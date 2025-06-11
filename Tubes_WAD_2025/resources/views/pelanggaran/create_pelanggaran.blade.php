@@ -21,8 +21,26 @@
 
         <!-- Jenis -->
         <div class="mb-3">
-            <label for="jenis" class="form-label">Jenis Pelanggaran</label>
-            <input type="text" name="jenis" class="form-control" placeholder="Contoh: Tidak memakai jas almamater" required>
+            <label for="jenis" class="form-label">
+                Jenis Pelanggaran 
+                <span data-bs-toggle="tooltip" data-bs-placement="right" title="Pilih kategori jenis pelanggaran yang sesuai dengan peraturan asrama.">
+                    <i class="bi bi-question-circle-fill text-primary"></i>
+                </span>
+            </label>
+            <select name="jenis" class="form-control" required>
+                <option value="">-- Pilih Jenis --</option>
+                <option value="Pelanggaran Etika Berpakaian">Pelanggaran Etika Berpakaian</option>
+                <option value="Kepemilikan Barang Terlarang">Kepemilikan Barang Terlarang</option>
+                <option value="Perilaku Tidak Pantas">Perilaku Tidak Pantas</option>
+                <option value="Pelanggaran Keamanan">Pelanggaran Keamanan</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+        
+        <!-- Deskripsi -->
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi Pelanggaran</label>
+            <input type="text" name="deskripsi" class="form-control" placeholder="Contoh: Tidak memakai jas almamater" required>
         </div>
 
         <!-- Foto -->

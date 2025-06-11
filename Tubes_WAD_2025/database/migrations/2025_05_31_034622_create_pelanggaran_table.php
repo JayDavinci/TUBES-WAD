@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('pelanggaran_id');
             $table->unsignedBigInteger('anggota_id');
             $table->string('jenis', 255);
+            $table->string('deskripsi', 255);
             $table->string('foto', 255)->nullable(); // kalau bisa kosong
             $table->dateTime('waktu');
             $table->timestamps();
