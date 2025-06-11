@@ -23,8 +23,11 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran.index');
 Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran.create');
 Route::post('/pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran.store');
-Route::delete('/pelanggaran/{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran.destroy');
 Route::get('/pelanggaran/melanggar', [PelanggaranController::class, 'melanggar'])->name('pelanggaran.melanggar');
+Route::get('/pelanggaran/{id}/edit', [PelanggaranController::class, 'edit'])->name('pelanggaran.edit');
+Route::put('/pelanggaran/{id}', [PelanggaranController::class, 'update'])->name('pelanggaran.update');
+Route::delete('/pelanggaran/{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran.destroy');
+
 
 // Terlambat
 Route::get('/terlambat', [TerlambatController::class, 'index'])->name('terlambat.index');
