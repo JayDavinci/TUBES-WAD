@@ -10,7 +10,6 @@ class AnggotaAsramaSeeder extends Seeder
     public function run()
     {
         DB::table('anggota_asramas')->insert([
-            // Gedung Asrama Putra
             [
                 'nama' => 'Ahmad Ridho',
                 'nim' => '123456789001',
@@ -112,7 +111,6 @@ class AnggotaAsramaSeeder extends Seeder
                 'updated_at' => now(),
             ],
 
-            // Gedung Asrama Putri
             [
                 'nama' => 'Putri Wulandari',
                 'nim' => '123456789011',
