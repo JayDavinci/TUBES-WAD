@@ -13,7 +13,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Ahmad Ridho',
                 'nim' => '123456789001',
-                'fakultas' => 'Teknik',
+                'fakultas' => 'FRI',
                 'prodi' => 'Sistem Informasi',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
@@ -23,7 +23,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Bagas Pratama',
                 'nim' => '123456789002',
-                'fakultas' => 'Teknik',
+                'fakultas' => 'FIF',
                 'prodi' => 'Informatika',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
@@ -33,7 +33,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Fahmi Hidayat',
                 'nim' => '123456789003',
-                'fakultas' => 'Ekonomi',
+                'fakultas' => 'FKS',
                 'prodi' => 'Akuntansi',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
@@ -43,8 +43,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Dimas Arya',
                 'nim' => '123456789004',
-                'fakultas' => 'Hukum',
-                'prodi' => 'Ilmu Hukum',
+                'fakultas' => 'FEB',
+                'prodi' => 'MBTI',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
                 'created_at' => now(),
@@ -53,8 +53,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Rizky Ananda',
                 'nim' => '123456789005',
-                'fakultas' => 'Pertanian',
-                'prodi' => 'Agroteknologi',
+                'fakultas' => 'FIT',
+                'prodi' => 'SIA',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
                 'created_at' => now(),
@@ -63,8 +63,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Arif Budiman',
                 'nim' => '123456789006',
-                'fakultas' => 'Kedokteran',
-                'prodi' => 'Kedokteran Umum',
+                'fakultas' => 'FTE',
+                'prodi' => 'Teknik Elektro',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
                 'created_at' => now(),
@@ -73,8 +73,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Ilham Saputra',
                 'nim' => '123456789007',
-                'fakultas' => 'MIPA',
-                'prodi' => 'Matematika',
+                'fakultas' => 'FIK',
+                'prodi' => 'DKV',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
                 'created_at' => now(),
@@ -83,7 +83,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Yusuf Maulana',
                 'nim' => '123456789008',
-                'fakultas' => 'Teknik',
+                'fakultas' => 'FTE',
                 'prodi' => 'Teknik Elektro',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
@@ -93,8 +93,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Galih Prawira',
                 'nim' => '123456789009',
-                'fakultas' => 'Ilmu Sosial',
-                'prodi' => 'Sosiologi',
+                'fakultas' => 'FKS',
+                'prodi' => 'Administrasi Bisnis',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
                 'created_at' => now(),
@@ -103,7 +103,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Aditya Raka',
                 'nim' => '123456789010',
-                'fakultas' => 'Ilmu Komputer',
+                'fakultas' => 'FIF',
                 'prodi' => 'Teknologi Informasi',
                 'jenis_kelamin' => 'Laki-laki',
                 'foto' => 'foto_profil/putra.jpg',
@@ -114,8 +114,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Putri Wulandari',
                 'nim' => '123456789011',
-                'fakultas' => 'Kesehatan',
-                'prodi' => 'Keperawatan',
+                'fakultas' => 'FTE',
+                'prodi' => 'Teknik Biomedis',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -124,8 +124,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Nadia Zahra',
                 'nim' => '123456789012',
-                'fakultas' => 'Ekonomi',
-                'prodi' => 'Manajemen',
+                'fakultas' => 'FRI',
+                'prodi' => 'Teknik Industri',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -134,7 +134,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Salsabila Aulia',
                 'nim' => '123456789013',
-                'fakultas' => 'Ilmu Komunikasi',
+                'fakultas' => 'FKS',
                 'prodi' => 'Public Relations',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
@@ -144,7 +144,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Intan Permata',
                 'nim' => '123456789014',
-                'fakultas' => 'Psikologi',
+                'fakultas' => 'FKS',
                 'prodi' => 'Psikologi',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
@@ -154,8 +154,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Rina Kartika',
                 'nim' => '123456789015',
-                'fakultas' => 'Ilmu Sosial',
-                'prodi' => 'Antropologi',
+                'fakultas' => 'FIK',
+                'prodi' => 'Desain Produk',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -164,8 +164,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Ayu Lestari',
                 'nim' => '123456789016',
-                'fakultas' => 'MIPA',
-                'prodi' => 'Biologi',
+                'fakultas' => 'FTE',
+                'prodi' => 'Teknik Telekomunikasi',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -174,8 +174,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Mega Putri',
                 'nim' => '123456789017',
-                'fakultas' => 'Teknik',
-                'prodi' => 'Teknik Sipil',
+                'fakultas' => 'FRI',
+                'prodi' => 'Teknik Logistik',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -184,8 +184,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Fira Anjani',
                 'nim' => '123456789018',
-                'fakultas' => 'Ilmu Budaya',
-                'prodi' => 'Sastra Indonesia',
+                'fakultas' => 'FIF',
+                'prodi' => 'Teknik Komputer',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
@@ -194,7 +194,7 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Tiara Melani',
                 'nim' => '123456789019',
-                'fakultas' => 'Ilmu Komputer',
+                'fakultas' => 'FRI',
                 'prodi' => 'Sistem Informasi',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
@@ -204,8 +204,8 @@ class AnggotaAsramaSeeder extends Seeder
             [
                 'nama' => 'Citra Rahma',
                 'nim' => '123456789020',
-                'fakultas' => 'Pertanian',
-                'prodi' => 'Ilmu Tanah',
+                'fakultas' => 'FKS',
+                'prodi' => 'Ilmu Komunikasi',
                 'jenis_kelamin' => 'Perempuan',
                 'foto' => 'foto_profil/putri.jpg',
                 'created_at' => now(),
