@@ -48,11 +48,17 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-    <img src="{{ asset('images/SR_Logo_Clear.png') }}" alt="Logo ASRI" width="30" height="30" class="me-2">
-    <span>ASRI</span>
+        <img src="{{ asset('images/SR_Logo_Clear.png') }}" alt="Logo ASRI" width="30" height="30" class="me-2">
+        <span>ASRI</span>
       </a>
+
+      <!-- Tombol Hamburger -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Menu Collapse -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <!-- Menu Kiri -->
         <ul class="navbar-nav me-auto">
@@ -80,7 +86,7 @@
           </li>
 
           <!-- Keaktifan Dorm -->
-            <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarProfil" role="button" data-bs-toggle="dropdown">
               Keaktifan Dorm
             </a>
@@ -92,7 +98,7 @@
           @endauth
         </ul>
 
-        <!-- Login/Register or User Menu -->
+        <!-- Login / Register / User Menu -->
         <ul class="navbar-nav">
           @guest
             <li class="nav-item">
@@ -109,7 +115,7 @@
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
                   <a class="dropdown-item" href="#"
-                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -120,9 +126,11 @@
             </li>
           @endguest
         </ul>
+
       </div>
     </div>
   </nav>
+
 
   <!-- Konten Utama -->
   <div class="container mt-4">
