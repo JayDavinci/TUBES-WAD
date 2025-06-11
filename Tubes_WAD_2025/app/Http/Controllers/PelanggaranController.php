@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelanggaran;
 use App\Models\AnggotaAsrama;
+use App\Http\Resources\PelanggaranResource;
 
 class PelanggaranController extends Controller
 {
