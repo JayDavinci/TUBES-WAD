@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profil;
-use App\Http\Resources\ProfilResource;
 
 class ProfilController extends Controller
 {
@@ -154,10 +153,5 @@ class ProfilController extends Controller
 
         $profils = $query->paginate(10);
         return view('profil.putri', compact('profils'));
-    }
-    public function getListProfil()
-    {
-        $profils = Profil::all();
-        return new ProfilResource(true, 'List Profil', $profils);
     }
 }

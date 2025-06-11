@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
     <h2>Edit Pelanggaran</h2>
-    <form action="{{ route('pelanggaran.update', $pelanggaran->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('pelanggaran.update', $pelanggaran->pelanggaran_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -42,7 +42,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{ route($pelanggaran->jenis == 'terlambat' ? 'terlambat.index' : 'melanggar.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route($pelanggaran->jenis == 'terlambat' ? 'terlambat.index' : 'pelanggaran.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 @endsection

@@ -58,10 +58,4 @@ class TerlambatController extends Controller
 
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
-
-     public function getListTerlambat()
-    {
-        $terlambats = terlambat::all();
-        return new TerlambatResource(true, 'List Profil', $profils);
-    }
 }
