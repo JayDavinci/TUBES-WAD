@@ -14,17 +14,58 @@
         </div>
     @endif
 
-    <form method="GET" action="{{ route('pelanggaran.index') }}" class="mb-3 d-flex justify-content-start align-items-center gap-2">
-        <select name="filter_jenis" class="form-select w-auto">
-            <option value="">Semua Jenis</option>
-            <option value="Pelanggaran Etika Berpakaian" {{ request('filter_jenis') == 'Pelanggaran Etika Berpakaian' ? 'selected' : '' }}>Pelanggaran Etika Berpakaian</option>
-            <option value="Kepemilikan Barang Terlarang" {{ request('filter_jenis') == 'Kepemilikan Barang Terlarang' ? 'selected' : '' }}>Kepemilikan Barang Terlarang</option>
-            <option value="Perilaku Tidak Pantas" {{ request('filter_jenis') == 'Perilaku Tidak Pantas' ? 'selected' : '' }}>Perilaku Tidak Pantas</option>
-            <option value="Pelanggaran Keamanan" {{ request('filter_jenis') == 'Pelanggaran Keamanan' ? 'selected' : '' }}>Pelanggaran Keamanan</option>
-            <option value="Lainnya" {{ request('filter_jenis') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
-        </select>
-        <button type="submit" class="btn btn-danger">Filter</button>
-    </form>
+    <!-- Tombol buka modal -->
+    <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#filterModal">
+        🔎 Filter
+    </button>
+
+    <!-- Modal Filter -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <form method="GET" action="{{ route('pelanggaran.melanggar') }}">
+            <div class="modal-header">
+            <h5 class="modal-title" id="filterModalLabel">Filter Pelanggaran</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+            <div class="mb-3">
+                <label for="search" class="form-label">Cari Nama</label>
+                <input type="text" name="search" class="form-control" value="{{ request('search') }}">
+                <small class="text-muted">Kosongkan jika tidak ingin memfilter bagian ini</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="filter_jenis" class="form-label">Jenis Pelanggaran</label>
+                <select name="filter_jenis" class="form-select">
+                <option value="">Semua Jenis</option>
+                <option value="Pelanggaran Etika Berpakaian" {{ request('filter_jenis') == 'Pelanggaran Etika Berpakaian' ? 'selected' : '' }}>Pelanggaran Etika Berpakaian</option>
+                <option value="Kepemilikan Barang Terlarang" {{ request('filter_jenis') == 'Kepemilikan Barang Terlarang' ? 'selected' : '' }}>Kepemilikan Barang Terlarang</option>
+                <option value="Perilaku Tidak Pantas" {{ request('filter_jenis') == 'Perilaku Tidak Pantas' ? 'selected' : '' }}>Perilaku Tidak Pantas</option>
+                <option value="Pelanggaran Keamanan" {{ request('filter_jenis') == 'Pelanggaran Keamanan' ? 'selected' : '' }}>Pelanggaran Keamanan</option>
+                <option value="Lainnya" {{ request('filter_jenis') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="start_date" class="form-label">Dari Tanggal</label>
+                <input type="date" name="start_date" class="form-control" value="{{ request('start_date') }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="end_date" class="form-label">Sampai Tanggal</label>
+                <input type="date" name="end_date" class="form-control" value="{{ request('end_date') }}">
+            </div>
+            </div>
+
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Terapkan Filter</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
 
 
     <div class="table-responsive">

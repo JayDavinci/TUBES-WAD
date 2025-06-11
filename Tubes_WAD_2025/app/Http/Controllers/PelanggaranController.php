@@ -12,8 +12,35 @@ class PelanggaranController extends Controller
     return view('pelanggaran.terlambat');
     }
 
-    public function melanggar(Request $request) {
-        return $this->index($request);
+    public function melanggar(Request $request)
+    {
+        $query = Pelanggaran::query();
+
+        // Filter by Jenis (kalau ada)
+        if ($request->filled('filter_jenis')) {
+            $query->where('jenis', $request->filter_jenis);
+        }
+
+        // Filter by Nama (kalau ada)
+        if ($request->filled('search')) {
+            $query->whereHas('anggota', function($q) use ($request) {
+                $q->where('nama', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        // Filter by Rentang Tanggal (kalau ada)
+        if ($request->filled('start_date')) {
+            $query->whereDate('waktu', '>=', $request->start_date);
+        }
+
+        if ($request->filled('end_date')) {
+            $query->whereDate('waktu', '<=', $request->end_date);
+        }
+
+        // Eksekusi query-nya
+        $pelanggarans = $query->with('anggota')->orderBy('waktu', 'desc')->get();
+
+        return view('pelanggaran.melanggar', compact('pelanggarans'));
     }
 
     public function index(Request $request)
