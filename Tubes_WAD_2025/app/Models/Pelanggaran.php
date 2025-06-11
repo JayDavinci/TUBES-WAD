@@ -11,7 +11,7 @@ class Pelanggaran extends Model
     protected $table = 'pelanggaran';
     protected $primaryKey = 'pelanggaran_id';
 
-    protected $fillable = ['anggota_id', 'jenis', 'foto', 'waktu'];
+    protected $fillable = ['anggota_id', 'jenis','deskripsi', 'foto', 'waktu'];
 
     public function anggota()
     {

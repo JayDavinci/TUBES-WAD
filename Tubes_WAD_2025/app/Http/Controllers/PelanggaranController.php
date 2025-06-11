@@ -34,11 +34,12 @@ public function index()
         $request->validate([
             'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
             'jenis' => 'required|string',
+            'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
             'waktu' => 'required|date',
         ]);
 
-        $data = $request->only(['anggota_id', 'jenis', 'waktu']);
+        $data = $request->only(['anggota_id', 'jenis','deskripsi', 'waktu']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_pelanggaran', 'public');
@@ -62,12 +63,13 @@ public function index()
         $request->validate([
             'anggota_id' => 'required|exists:anggota_asramas,anggota_id',
             'jenis' => 'required|string',
+            'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
             'waktu' => 'required|date',
         ]);
 
         $pelanggaran = Pelanggaran::findOrFail($id);
-        $data = $request->only(['anggota_id', 'jenis', 'waktu']);
+        $data = $request->only(['anggota_id', 'jenis','deskripsi', 'waktu']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto_pelanggaran', 'public');

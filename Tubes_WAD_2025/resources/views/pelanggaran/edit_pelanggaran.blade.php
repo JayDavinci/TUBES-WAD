@@ -21,11 +21,24 @@
         </div>
 
         <div class="mb-3">
-            <label for="jenis" class="form-label">Jenis</label>
+            <label for="jenis" class="form-label">
+                Jenis Pelanggaran 
+                <span data-bs-toggle="tooltip" data-bs-placement="right" title="Pilih kategori jenis pelanggaran yang sesuai dengan peraturan asrama.">
+                    <i class="bi bi-question-circle-fill text-primary"></i>
+                </span>
+            </label>
             <select name="jenis" class="form-control" required>
-                <option value="terlambat" {{ $pelanggaran->jenis == 'terlambat' ? 'selected' : '' }}>Terlambat</option>
-                <option value="melanggar" {{ $pelanggaran->jenis == 'melanggar' ? 'selected' : '' }}>Melanggar</option>
+                <option value="Pelanggaran Etika Berpakaian" {{ $pelanggaran->jenis == 'Pelanggaran Etika Berpakaian' ? 'selected' : '' }}>Pelanggaran Etika Berpakaian</option>
+                <option value="Kepemilikan Barang Terlarang" {{ $pelanggaran->jenis == 'Kepemilikan Barang Terlarang' ? 'selected' : '' }}>Kepemilikan Barang Terlarang</option>
+                <option value="Perilaku Tidak Pantas" {{ $pelanggaran->jenis == 'Perilaku Tidak Pantas' ? 'selected' : '' }}>Perilaku Tidak Pantas</option>
+                <option value="Pelanggaran Keamanan" {{ $pelanggaran->jenis == 'Pelanggaran Keamanan' ? 'selected' : '' }}>Pelanggaran Keamanan</option>
+                <option value="Lainnya" {{ $pelanggaran->jenis == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <textarea name="deskripsi" class="form-control" rows="3" required>{{ $pelanggaran->deskripsi }}</textarea>
         </div>
 
         <div class="mb-3">

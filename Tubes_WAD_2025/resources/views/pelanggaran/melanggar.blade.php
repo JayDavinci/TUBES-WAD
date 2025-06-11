@@ -20,6 +20,7 @@
                 <tr>
                     <th>Nama</th>
                     <th>Jenis</th>
+                    <th>Deskripsi</th>
                     <th>Foto</th>
                     <th>Waktu</th>
                     <th>Aksi</th>
@@ -30,6 +31,7 @@
                 <tr>
                     <td>{{ $data->anggota->nama ?? '-' }}</td>
                     <td><span class="badge bg-warning text-dark">{{ $data->jenis }}</span></td>
+                    <td>{{ $data->deskripsi }}</td> <!-- 👈 INI YANG HARUS DITAMBAH -->
                     <td>
                         @if($data->foto)
                             <img src="{{ asset('storage/' . $data->foto) }}" width="80" class="img-thumbnail">
@@ -49,7 +51,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="text-center text-muted">Belum ada data pelanggaran.</td>
+                    <td colspan="6" class="text-center text-muted">Belum ada data pelanggaran.</td>
                 </tr>
                 @endforelse
             </tbody>
