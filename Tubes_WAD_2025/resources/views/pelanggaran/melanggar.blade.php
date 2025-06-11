@@ -14,6 +14,19 @@
         </div>
     @endif
 
+    <form method="GET" action="{{ route('pelanggaran.index') }}" class="mb-3 d-flex justify-content-start align-items-center gap-2">
+        <select name="filter_jenis" class="form-select w-auto">
+            <option value="">Semua Jenis</option>
+            <option value="Pelanggaran Etika Berpakaian" {{ request('filter_jenis') == 'Pelanggaran Etika Berpakaian' ? 'selected' : '' }}>Pelanggaran Etika Berpakaian</option>
+            <option value="Kepemilikan Barang Terlarang" {{ request('filter_jenis') == 'Kepemilikan Barang Terlarang' ? 'selected' : '' }}>Kepemilikan Barang Terlarang</option>
+            <option value="Perilaku Tidak Pantas" {{ request('filter_jenis') == 'Perilaku Tidak Pantas' ? 'selected' : '' }}>Perilaku Tidak Pantas</option>
+            <option value="Pelanggaran Keamanan" {{ request('filter_jenis') == 'Pelanggaran Keamanan' ? 'selected' : '' }}>Pelanggaran Keamanan</option>
+            <option value="Lainnya" {{ request('filter_jenis') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+        </select>
+        <button type="submit" class="btn btn-danger">Filter</button>
+    </form>
+
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-danger">

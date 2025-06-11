@@ -10,16 +10,23 @@ class PelanggaranController extends Controller
 {
     public function terlambat() {
     return view('pelanggaran.terlambat');
-}
+    }
 
-public function melanggar() {
-    return $this->index();
-}
+    public function melanggar(Request $request) {
+        return $this->index($request);
+    }
 
-public function index()
+    public function index(Request $request)
     {
-        $pelanggarans = Pelanggaran::with('anggota')->latest()->get();
-        return view('Pelanggaran.melanggar', compact('pelanggarans'));
+        $query = Pelanggaran::with('anggota');
+
+        if ($request->filled('filter_jenis')) {
+            $query->where('jenis', $request->filter_jenis);
+        }
+
+        $pelanggarans = $query->get();
+
+        return view('pelanggaran.melanggar', compact('pelanggarans'));
     }
 
     public function create()
