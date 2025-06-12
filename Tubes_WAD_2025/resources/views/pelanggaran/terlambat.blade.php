@@ -7,13 +7,28 @@
     <a href="{{ route('terlambat.create') }}" class="btn btn-primary mb-3">
         + Tambah Data Terlambat
     </a>
-    
+
+    {{-- Alert sukses --}}
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
+    {{-- Form Pencarian Nama --}}
+   <form method="GET" action="{{ route('terlambat.index') }}" class="row g-2 align-items-center mb-3">
+    <div class="col-md-6">
+        <input type="text" name="nama" class="form-control" placeholder="Cari berdasarkan nama" value="{{ request('nama') }}">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">🔍 Cari</button>
+    </div>
+    <div class="col-auto">
+        <a href="{{ route('terlambat.index') }}" class="btn btn-outline-secondary">🔁 Reset</a>
+    </div>
+</form>
+
+    {{-- Tabel Data --}}
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-info">
