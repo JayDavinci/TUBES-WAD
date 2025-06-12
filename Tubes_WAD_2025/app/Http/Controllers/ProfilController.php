@@ -8,7 +8,6 @@ use App\Http\Resources\ProfilResource;
 
 class ProfilController extends Controller
 {
-    // Tampilkan semua profil dengan pencarian & filter
         public function index(Request $request)
     {
         $query = Profil::query();
@@ -33,13 +32,11 @@ class ProfilController extends Controller
         return view('profil.index', compact('profils'));
     }
 
-    // Tampilkan form tambah profil
         public function create()
     {
         return view('profil.create');
     }
 
-    // Simpan profil baru
         public function store(Request $request)
     {
         $request->validate([
@@ -53,7 +50,6 @@ class ProfilController extends Controller
 
         $data = $request->only(['nama', 'nim', 'fakultas', 'prodi', 'jenis_kelamin']);
 
-        // Standarisasi huruf besar kecil
         $data['jenis_kelamin'] = ucfirst(strtolower($data['jenis_kelamin']));
 
         if ($request->hasFile('foto')) {
@@ -64,21 +60,18 @@ class ProfilController extends Controller
         return redirect()->route('profil.index')->with('success', 'Profil berhasil ditambahkan!');
     }
 
-    // Tampilkan detail profil
         public function show($anggota_id)
     {
         $profil = Profil::findOrFail($anggota_id);
         return view('profil.show', compact('profil'));
     }
 
-    // Tampilkan form edit profil
         public function edit($anggota_id)
     {
         $profil = Profil::findOrFail($anggota_id);
         return view('profil.edit', compact('profil'));
     }
 
-    // Update profil
         public function update(Request $request, $anggota_id)
     {
         $request->validate([
@@ -93,7 +86,6 @@ class ProfilController extends Controller
         $profil = Profil::findOrFail($anggota_id);
         $data = $request->only(['nama', 'nim', 'fakultas', 'prodi', 'jenis_kelamin']);
 
-        // Standarisasi juga
         $data['jenis_kelamin'] = ucfirst(strtolower($data['jenis_kelamin']));
 
         if ($request->hasFile('foto')) {
@@ -107,7 +99,6 @@ class ProfilController extends Controller
         return redirect()->route('profil.index')->with('success', 'Profil berhasil diupdate!');
     }
 
-    // Hapus profil
         public function destroy($anggota_id)
     {
         $profil = Profil::findOrFail($anggota_id);
@@ -118,7 +109,6 @@ class ProfilController extends Controller
         return redirect()->route('profil.index')->with('success', 'Profil berhasil dihapus!');
     }
 
-    // Tampilkan profil putra
         public function putera(Request $request)
     {
         $query = Profil::where('jenis_kelamin', 'Laki-laki')->orderBy('created_at', 'desc');
@@ -137,7 +127,6 @@ class ProfilController extends Controller
         return view('profil.putra', compact('profils'));
     }
 
-    // Tampilkan profil putri
         public function puteri(Request $request)
     {
         $query = Profil::where('jenis_kelamin', 'Perempuan')->orderBy('created_at', 'desc');
