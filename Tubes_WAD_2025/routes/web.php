@@ -40,9 +40,9 @@ Route::delete('/terlambat/{id}', [TerlambatController::class, 'destroy'])->name(
 // Profil
 Route::get('/profil/putera', [ProfilController::class, 'putera'])->name('profil.putra');
 Route::get('/profil/puteri', [ProfilController::class, 'puteri'])->name('profil.putri');
-Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
-Route::post('/profil', [ProfilController::class, 'store'])->name('profil.store');
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
+Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
+Route::post('/profil/store', [ProfilController::class, 'store'])->name('profil.store');
 Route::get('/profil/{anggota_id}', [ProfilController::class, 'show'])->name('profil.show');
 Route::get('/profil/{anggota_id}/edit', [ProfilController::class, 'edit'])->name('profil.edit');
 Route::put('/profil/{anggota_id}', [ProfilController::class, 'update'])->name('profil.update');

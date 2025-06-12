@@ -8,9 +8,17 @@ use App\Models\AnggotaAsrama;
 
 class TerlambatController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $terlambats = Terlambat::with('anggota')->latest()->get();
+        $query = Terlambat::with('anggota')->latest();
+
+        if ($request->has('nama') && $request->nama != '') {
+            $query->whereHas('anggota', function ($q) use ($request) {
+                $q->where('nama', 'like', '%' . $request->nama . '%');
+            });
+        }
+
+        $terlambats = $query->get();
         return view('Pelanggaran.terlambat', compact('terlambats'));
     }
 
@@ -61,7 +69,12 @@ class TerlambatController extends Controller
 
      public function getListTerlambat()
     {
-        $terlambats = terlambat::all();
-        return new TerlambatResource(true, 'List Profil', $profils);
+    $terlambat = Terlambat::with('anggota')->get();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'List Terlambat',
+        'data'    => $terlambat
+    ]);
     }
 }
