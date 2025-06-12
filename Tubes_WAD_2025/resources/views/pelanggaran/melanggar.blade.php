@@ -88,10 +88,27 @@
                     <td>{{ $data->deskripsi }}</td>
                     <td>
                         @if($data->foto)
-                            <img src="{{ asset('storage/' . $data->foto) }}" width="80" class="img-thumbnail">
+                            <img src="{{ asset('storage/' . $data->foto) }}" 
+                                width="80" 
+                                class="img-thumbnail" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalFoto{{ $data->pelanggaran_id }}" 
+                                style="cursor:pointer">
+                                
+                            <!-- Modal -->
+                            <div class="modal fade" id="modalFoto{{ $data->pelanggaran_id }}" tabindex="-1" aria-labelledby="modalLabel{{ $data->pelanggaran_id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-body text-center">
+                                            <img src="{{ asset('storage/' . $data->foto) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @else
                             <span class="text-muted">Tidak ada</span>
                         @endif
+
                     </td>
                     <td>{{ \Carbon\Carbon::parse($data->waktu)->format('d M Y, H:i') }}</td>
                     <td class="d-flex gap-2">
