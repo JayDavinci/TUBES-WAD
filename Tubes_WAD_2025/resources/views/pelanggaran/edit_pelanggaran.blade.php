@@ -43,7 +43,12 @@
 
         <div class="mb-3">
             <label for="waktu" class="form-label">Waktu</label>
-            <input type="datetime-local" name="waktu" class="form-control" value="{{ date('Y-m-d\TH:i', strtotime($pelanggaran->waktu)) }}" required>
+            <input type="datetime-local" name="waktu" class="form-control @error('waktu') is-invalid @enderror" value="{{ old('waktu', date('Y-m-d\TH:i', strtotime($pelanggaran->waktu))) }}" max="{{ date('Y-m-d\TH:i') }}" required>
+            @error('waktu')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
 
         <div class="mb-3">
