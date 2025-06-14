@@ -70,7 +70,15 @@ class KeaktifanController extends Controller
     }
     public function getListKeaktifan()
     {
-        $keaktifan = Keaktifan::all();
-        return new KeaktifanResource(true, 'List Keaktifan', $keaktifan);
+    $keaktifan = Keaktifan::all();
+
+    if ($keaktifan->isEmpty()) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Data tidak ditemukan'
+        ], 404);
+    }
+
+    return new KeaktifanResource(true, 'List Keaktifan', $keaktifan);
     }
 }

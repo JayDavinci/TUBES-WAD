@@ -63,9 +63,17 @@ class AcaraController extends Controller
         return redirect()->route('acara.index')->with('success', 'Acara berhasil dihapus!');
     }
     
-        public function getListAcara()
+    public function getListAcara()
     {
-        $acara = Acara::all();
-        return new AcaraResource(true, 'List Acara', $acara);
+    $acara = Acara::all();
+
+    if ($acara->isEmpty()) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Data tidak ditemukan'
+        ], 404);
     }
+
+    return new AcaraResource(true, 'List Acara', $acara);
+}
 }
