@@ -40,8 +40,8 @@ class ProfilController extends Controller
         public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'nim' => 'required|string|max:50',
+            'nama' => 'required|string|max:100',
+            'nim' => 'required|string|max:12|unique:anggota_asramas,nim',
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
@@ -75,8 +75,8 @@ class ProfilController extends Controller
         public function update(Request $request, $anggota_id)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'nim' => 'required|string|max:50',
+            'nama' => 'required|string|max:100',
+            'nim' => 'required|string|max:12|unique:anggota_asramas,nim,' . $anggota_id . ',anggota_id',
             'fakultas' => 'required|string|max:100',
             'prodi' => 'required|string|max:100',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
