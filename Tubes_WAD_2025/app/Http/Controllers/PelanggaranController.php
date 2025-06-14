@@ -60,7 +60,7 @@ class PelanggaranController extends Controller
     public function create()
     {
         $anggota = AnggotaAsrama::all();
-        return view('Pelanggaran.create_pelanggaran', compact('anggota'));
+        return view('pelanggaran.create_pelanggaran', compact('anggota'));
     }
 
     //function tambah
@@ -97,7 +97,7 @@ class PelanggaranController extends Controller
     {
         $pelanggaran = Pelanggaran::findOrFail($id);
         $anggota = AnggotaAsrama::all();
-        return view('Pelanggaran.edit_pelanggaran', compact('pelanggaran', 'anggota'));
+        return view('pelanggaran.edit_pelanggaran', compact('pelanggaran', 'anggota'));
     }
 
     //function update

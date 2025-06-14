@@ -19,13 +19,13 @@ class TerlambatController extends Controller
         }
 
         $terlambats = $query->get();
-        return view('Pelanggaran.terlambat', compact('terlambats'));
+        return view('pelanggaran.terlambat', compact('terlambats'));
     }
 
     public function create()
     {
         $anggota = AnggotaAsrama::select('anggota_id', 'nama', 'jenis_kelamin')->get();
-        return view('Pelanggaran.create_terlambat', compact('anggota'));
+        return view('pelanggaran.create_terlambat', compact('anggota'));
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class TerlambatController extends Controller
     {
         $terlambat = Terlambat::findOrFail($id);
         $anggota = AnggotaAsrama::all();
-        return view('Pelanggaran.edit_terlambat', compact('terlambat', 'anggota'));
+        return view('pelanggaran.edit_terlambat', compact('terlambat', 'anggota'));
     }
 
     public function update(Request $request, $id)
