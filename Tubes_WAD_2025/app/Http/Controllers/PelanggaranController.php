@@ -71,7 +71,15 @@ class PelanggaranController extends Controller
             'jenis' => 'required|string',
             'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
-            'waktu' => 'required|date',
+            'waktu' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if (date('Y-m-d', strtotime($value)) > date('Y-m-d')) {
+                        $fail('Waktu tidak boleh lebih dari hari ini.');
+                    }
+                },
+            ],
         ]);
 
         $data = $request->only(['anggota_id', 'jenis','deskripsi', 'waktu']);
@@ -100,7 +108,15 @@ class PelanggaranController extends Controller
             'jenis' => 'required|string',
             'deskripsi' => 'required|string',
             'foto' => 'nullable|image|max:2048',
-            'waktu' => 'required|date',
+            'waktu' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if (date('Y-m-d', strtotime($value)) > date('Y-m-d')) {
+                        $fail('Waktu tidak boleh lebih dari hari ini.');
+                    }
+                },
+            ],
         ]);
 
         $pelanggaran = Pelanggaran::findOrFail($id);

@@ -52,7 +52,15 @@
         <!-- Waktu -->
         <div class="mb-3">
             <label for="waktu" class="form-label">Waktu Pelanggaran</label>
-            <input type="datetime-local" name="waktu" class="form-control" required>
+            <input type="datetime-local" 
+                   name="waktu" 
+                   class="form-control @error('waktu') is-invalid @enderror" 
+                   value="{{ old('waktu') }}" 
+                   max="{{ now()->format('Y-m-d\TH:i') }}" 
+                   required>
+            @error('waktu')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <!-- Tombol Submit -->
